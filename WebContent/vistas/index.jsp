@@ -169,14 +169,14 @@
         <div class="row">  <!-- Abre Row de Formulario -->
 
           <div class="col-12 porcionOcupa55"> 
-           <p class="text text-center">Anótate como orador para dar una <span class="text-decoration-underline">charla ignite.</span> CuÃ©ntanos de que quieres hablar!</p>
+           <p class="text text-center">Anótate como orador para dar una <span class="text-decoration-underline">charla ignite.</span> Cuéntanos de que quieres hablar!</p>
            
            <div class="entradaEnLinea">
-             <div class="tamañooEntrada">
+             <div class="ticketEntrada">
                 <input type="text" class="form-control" placeholder="Nombre" aria-label="Nombre">
              </div>
            
-             <div class="tamañoEntrada">
+             <div class="ticketEntrada">
                 <input type="text" class="form-control" placeholder="Apellido" aria-label="Apellido">
              </div>
            </div>

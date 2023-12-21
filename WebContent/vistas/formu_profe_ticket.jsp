@@ -59,27 +59,25 @@
             <!-- <div class="col-12"> -->
 
             <div class="col-12 ticketFlex porcionOcupa55">
-                <div class="text-center cajaTicket border-danger-subtle btn btn-light" onclick="cargaDctoEstudiante();">
+                <div class="text-center cajaTicket border-success btn btn-light" onclick="cargaDctoEstudiante();">
                     <br>
-                    <h4>Estudiante</h4>
+                    <h5>Estudiante</h5>
                     <p>Tienen un descuento</p>
-                    <h4>80%</h4>
+                    <h5>80%</h5>
                     <p class="small">* presentar documentación</p>
                 </div>
-                
                 <div class="text-center cajaTicket border-danger-subtle btn btn-light" onclick="cargaDctoTrainee();">
                     <br>
-                    <h4>Trainee</h4>
+                    <h5>Trainee</h5>
                     <p>Tienen un descuento</p>
-                    <h4>50%</h4>
+                    <h5>50%</h5>
                     <p class="small">* presentar documentación</p>
                 </div>
-                
-                <div class="text-center cajaTicket border-danger-subtle btn btn-light" onclick="cargaDctoJunior();">
+                <div class="text-center cajaTicket border-black btn btn-light" onclick="cargaDctoJunior();">
                     <br>
-                    <h4>Junior</h4>
+                    <h5>Junior</h5>
                     <p>Tienen un descuento</p>
-                    <h4>15%</h4>
+                    <h5>15%</h5>
                     <p class="small">* presentar documentación</p>
                 </div>
                 </div>
@@ -93,70 +91,53 @@
             </div>
         </div>  <!-- Cierra Row de Texto Centrado -->
 
-        <form action="FrontController?accion=insertar" method="post">   <!-- Abre Formulario -->
-        <div class="row">  <!-- Abre Row de Formulario -->
-
-          <div class="col-12 porcionOcupa55"> 
-           <br>
-           <div class="entradaEnLinea">
-             <div class="ticketEntrada">
-                <input name="nombre" id="nombre" type="text" class="form-control" placeholder="Nombre" aria-label="Nombre" required>
-             </div>           
-             <div class="ticketEntrada">
-                <input name="apellido" id="apellido" type="text" class="form-control" placeholder="Apellido" aria-label="Apellido" required>
-             </div>
-           </div>
-           
-           <div class="mb-3">
-                <p class="small"></p>
-                <input name="correo" id="correo" type="email" class="form-control" placeholder="Correo" aria-label="Correo" required>
-           </div>
-
-          <div class="entradaEnLinea">
-            <div class="ticketEntrada">
-               <p>Cantidad</p>
-               <input name="cantidad" id="cantidad" type="number" class="form-control" placeholder="Cantidad" aria-label="Nombre" min="1" required>
-            </div>           
-            <div class="ticketEntrada">
-               <p>Categoría</p>
-               <select name="categoria" id="categoria" class="form-select" aria-label="Default select example" onchange="seleccionar();" required>
-                     <!-- <option disabled="disabled">-- Seleccione --</option> -->
-                      <option value="1">Estudiante</option>
-                     <option value="2">Trainee</option>
-                     <option value="3">Junior</option>
-               </select>
-                              
-            </div>
-          </div>
-              
-          <br>
-          <div class="alert alert-danger entradaEnLinea text-center">
-             <div class="ticketEntrada">
-                        <h4>Total a Pagar:  $</h4>
-             </div> 
-                  
-             <div class="ticketEntrada">
-                        <input name="total_facturado" id="totalPago" type="number" class="form-control" readonly required>
-             </div>             
-
-          </div>
-          
-          
-         <!--  <div class="container mt-3">
-            <!-- <button type="button" class="btn btn-light verdeClarito text-light ticketEntrada" onclick="borrarContenido()">Volver</button> -->
-          <div class="btn-group-justified ticketFlex">
-          
-            <button type="button" class="btn btn-warning ticketBotones" onclick="window.location.href='FrontController?accion=volver'">Volver</button>
-            <button type="button" class="btn btn-danger ticketBotones" onclick="calcularImporte()">Calcular Pago</button>
-            <!-- <button type="button" class="btn btn-light verdeClarito text-light ticketEntrada" onclick="window.location.href='FrontController?accion=insertar'">Comprar Ticket</button> -->
-            <button type="button" class="btn btn-success ticketBotones">Comprar Ticket</button>           
+                <form action="FrontController?accion=insertar" method="post">
+                    <div class="row gx-2">
+                        <div class="col-md mb-3">
+                            <input type="text" class="form-control" placeholder="Nombre" name="nombre" aria-label="Nombre" id="nombre" required>
+                        </div>
+                        <div class="col-md mb-3">
+                            <input type="text" class="form-control" placeholder="Apellido" name="apellido" aria-label="Apellido" id="apellido" required>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col mb-3">
+                            <input type="email" class="form-control" placeholder="Email" aria-label="Email" name="correo" id="mail" required>
+                        </div>
+                    </div>
+                    <div class="row gx-2">
+                        <div class="col-md mb-3">
+                            <label for="cantidadTickets" class="form-label">Cantidad</label>
+                            <input type="number" class="form-control" placeholder="Cantidad" name="cant" aria-label="Cantidad" id="cantidadTickets" min="1" required>
+                        </div>
+                        <div class="col-md mb-3">
+                            <label for="categoriaSelect" class="form-label">Categoria</label>
+                            <select class="form-select" aria-label="CategorÃ­a" id="categoriaSelect" name="categoria">
+                                <option value="" selected>-- Seleccione --</option>
+                                <option value="0">Sin Categoria</option>
+                                <option value="1">Estudiante</option>
+                                <option value="2">Trainee</option>
+                                <option value="3">Junior</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="alert alert-primary mt-2 mb-4" role="alert">
+                        Total a pagar: $ <span id="totalPago" class="align-middle"></span>
+                    </div>
+                    <div class="row gx-2">
+                        <div class="col-md mb-3">
+                            <button type="button" onclick="window.open('FrontController?accion=volver')"   class="w-100 btn btn-warning" id="btnBorrar">Volver</button>
+                        </div>
+                        <div class="col-md mb-3">
+                            <button type="reset" class="w-100 btn btn-danger" id="btnBorrar">Borrar</button>
+                        </div>
+                        <div class="col-md mb-3">
+                        	<button type="submit" class="w-100 btn btn-success" >Comprar</button>
+                        </div> 
                         
-          </div>
-                    
-          </div>
-
-        </div>  <!-- Cierra Row de Formulario -->
-        </form>  <!-- Cierra Formulario -->
+                        
+                    </div>
+                </form>
 
         <br>
         <div class="row fondoAzul">  <!-- Abre Row de Footer -->

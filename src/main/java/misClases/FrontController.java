@@ -37,6 +37,7 @@ public class FrontController extends HttpServlet {
 		RequestDispatcher dispatcher=null;
 		accion=request.getParameter("accion");
 		
+		
 		if(accion==null||accion.isEmpty())
 		{
 			dispatcher=request.getRequestDispatcher("vistas/index.jsp");
@@ -59,16 +60,22 @@ public class FrontController extends HttpServlet {
 		{
 			dispatcher=request.getRequestDispatcher("vistas/index.jsp");
 		}
-		else if(accion.equals("comprar"))
+		else if(accion.equals("insertar"))
 		{
 			String nombre=request.getParameter("nombre");
 			String apellido=request.getParameter("apellido");
-			String mail=request.getParameter("mail");			
-			int cant=Integer.parseInt(request.getParameter("cant"));			
-			int opcionSeleccionada=Integer.parseInt(request.getParameter("categoria"));
-			float total;
+			String mail=request.getParameter("correo");			
+			//String textoCategoria=request.getParameter("categoria");
 			
-			dispatcher=request.getRequestDispatcher("vistas/index.jsp");
+			int cant=Integer.parseInt(request.getParameter("cantidad"));			
+			int categoria=Integer.parseInt(request.getParameter("categoria"));
+			float total=Float.parseFloat(request.getParameter("total_facturado"));
+				
+			Tickets ticket=new Tickets(0, nombre, apellido, mail, cant, categoria, total);
+			//Tickets ticket=new Tickets(0,"Nuevo","Registro","mail@hardcodeado.com",1,1,500);
+			
+			ticketDAO.insertarTicket(ticket);
+			//dispatcher=request.getRequestDispatcher("vistas/index.jsp");
 		}
 		
 		
